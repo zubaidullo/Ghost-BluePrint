@@ -2,29 +2,7 @@
     {
         "hosts": "all",
         "gather_facts": "false",
-        "remote_user": "root",
-        "tasks": [
-            {
-                "name": "DPKG Unsafe I/O", 
-                "raw": "test -e /etc/dpkg/dpkg.cfg.d/unsafe-io || echo force-unsafe-io > /etc/dpkg/dpkg.cfg.d/unsafe-io"
-            },
-            {
-                "name": "Update",
-                "raw": "apt-get -y --allow-unauthenticated update || true"
-            },
-            {
-                "name": "Ensure python is available",
-                "raw": "test -e /usr/bin/python || apt install -y --allow-unauthenticated python-minimal"
-            },
-            {
-                "name": "Ensure python-apt is available",
-                "raw": "test -d /usr/share/python-apt || apt install -y --allow-unauthenticated python-apt"
-            },
-            {
-                "name": "Upgrade",
-                "raw": "apt-get -y --allow-unauthenticated upgrade"
-            }
-        ]
+        "remote_user": "root"
     },
     {
         "hosts": "Ghost",
@@ -92,30 +70,6 @@
                     "name": "Ghost",
                     "password": "Ghost",
                     "priv": "Ghost.*:ALL"
-                }
-            },
-            {
-                "name": "get Ghost-cli",
-                "get_url": {
-                    "url": "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar",
-                    "dest": "/usr/local/bin/wp",
-                    "validate_certs": "no"
-                }
-            },
-            {
-                "name": "make Ghost-cli executable",
-                "file": {
-                    "path": "/usr/local/bin/wp",
-                    "state": "touch",
-                    "mode": "u+rwx,g+rx,o+rx"
-                }
-            },
-            {
-                "name": "download Ghost core",
-                "command": "wp core download --allow-root",
-                "args": {
-                    "chdir": "/var/www/html",
-                    "creates": "/var/www/html/index.php"
                 }
             },
             {
