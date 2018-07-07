@@ -73,25 +73,10 @@
                 }
             },
             {
-                "name": "create Ghost config",
-                "command": "ghost config create --dbname=ghost --dbuser=ghost --dbpass=ghost --allow-root",
-                "args": {
-                    "chdir": "/var",
-                    "creates": "/var/ghost-config.php"
-                }
-            },
-            {
                 "name": "install ghost",
                 "command": "ghost core install --url={{domain_name}} --title='{{site_title}}' --admin_user={{admin_user}} --admin_password={{admin_pwd}} --admin_email=info@wp-cli.org --allow-root",
                 "args": {
                     "chdir": "/var"
-                }
-            },
-            {
-                "name": "remove index.html",
-                "file": {
-                    "name": "/var/index.html",
-                    "state": "absent"
                 }
             },
             {
