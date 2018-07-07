@@ -73,22 +73,6 @@
                 }
             },
             {
-                "name": "install ghost",
-                "command": "ghost core install --url={{domain_name}} --title='{{site_title}}' --admin_user={{admin_user}} --admin_password={{admin_pwd}} --admin_email=info@wp-cli.org --allow-root",
-                "args": {
-                    "chdir": "/var"
-                }
-            },
-            {
-                "name": "change file ownership",
-                "file": {
-                    "path": "/var",
-                    "recurse": "yes",
-                    "owner": "www-data",
-                    "group": "www-data"
-                }
-            },
-            {
                 "name": "restart apache",
                 "service": {
                     "name": "apache2",
