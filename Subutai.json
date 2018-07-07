@@ -30,11 +30,11 @@
         "ansible-playbook": "Ghost.json",
         "extra-vars": [
             {
-                "key": "site_title",
+                "key": "Site_Title",
                 "value": "${siteTitle}"
             }, 
             {
-                "key": "domain_name",
+                "key": "User_Name",
                 "value": "${domainName}"
             }, 
             {
@@ -42,7 +42,7 @@
                 "value": "${adminUser}"
             }, 
             {
-                "key": "admin_pwd",
+                "key": "User_Password",
                 "value": "${adminPwd}"
             }
         ],
@@ -56,40 +56,40 @@
         ]
     },
     "user-variables": {
-        "environmentName": {
+        "EnvironmentName": {
             "description": "Enter the environment name",
             "type": "string",
             "default": "Ghost",
             "validation": "[a-zA-Z0-9]+"
         },
-        "domainName": {
+        "DomainName": {
             "description": "Enter the application domain name",
             "type": "domain",
             "default": "change.the.domain",
             "validation": "[a-zA-Z0-9]+"
         },
-        "siteTitle": {
+        "SiteTitle": {
             "description": "Enter the site's title",
             "type": "string",
             "default": "title"
         },
-        "adminUser": {
+        "UserName": {
             "description": "Site administrator user",
             "type": "string",
             "default": "admin"
         },
-        "adminPwd": {
+        "UserPassword": {
             "description": "Site administrator password",
             "type": "string",
             "default": "admin"
         },
-        "webContainerName": {
+        "WebContainerName": {
             "description": "Enter the container's hostname",
             "type": "string",
             "default": "Ghost",
             "validation": "[a-zA-Z0-9]+"
         },
-        "containerSize": {
+        "ContainerSize": {
             "description": "Container Size",
             "type": "enum",
             "default": "TINY",
