@@ -53,16 +53,15 @@
 
     - name: Create database
       mysql_db: 
-      name: "{{ db }}"
-      state: present
-      encoding: utf8
-
+        name: ghost
+        state: present
+        encoding: utf8
 
     - name: Create database user
       mysql_user: 
-        name: "{{ db_user }}"
-        password: "{{ db_pwd }}"
-        priv: "{{ db }}.*:ALL"
+        name: ghost
+        password: ghost
+        priv: ghost.*:ALL
 
     - name: Download and unzip Ghost
       unarchive: 
