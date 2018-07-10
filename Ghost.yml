@@ -53,9 +53,9 @@
 
     - name: Create database
       mysql_db: 
-        name: "{{ db }}"
-        state: present
-        encoding: utf8
+      name: "{{ db }}"
+      state: present
+      encoding: utf8
 
 
     - name: Create database user
