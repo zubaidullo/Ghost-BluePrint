@@ -51,15 +51,6 @@
     #     dest: /tmp/ghost-latest.zip
     #     validate_certs: false
 
-    - name: installing unzip
-     apt:
-      name: unzip
-      allow_unauthenticated: true
-      update_cache: false
-
-    - name: Unzipping ghost zip file
-     shell: unzip /tmp/ghost-latest.zip
-
         - name: Create database
       mysql_db: 
         name: "{{ db }}"
@@ -68,13 +59,13 @@
 
 
     - name: Create database user
-     mysql_user: 
+      mysql_user: 
         name: "{{ db_user }}"
         password: "{{ db_pwd }}"
         priv: "{{ db }}.*:ALL"
 
     - name: Download and unzip Ghost
-     unarchive: 
+      unarchive: 
         src: "https://ghost.org/zip/ghost-latest.zip"
         dest: "/tmp"
         remote_src: yes
@@ -82,17 +73,17 @@
 
 
     - name: Move files
-     command: bash -c "mv /tmp/ghost/* /var/www/html/"
+      command: bash -c "mv /tmp/ghost/* /var/www/html/"
 
     - name: Change file ownership
-     file: 
+      file: 
         path: /var/www/html
         recurse: yes
         owner: www-data
         group: www-data
 
     - name: Restart apache
-     service: 
+      service: 
         name: apache2
         state: restarted   
 
