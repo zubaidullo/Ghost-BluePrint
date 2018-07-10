@@ -44,7 +44,6 @@
         - unzip 
         - mariadb-server
         - python-mysqldb
-        - nginx
 
     # - name: Downloading ghost zip file
     #  get_url:
