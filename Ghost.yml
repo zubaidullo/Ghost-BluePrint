@@ -1,3 +1,6 @@
+#Ansible Playbook for Subutai Ghost BluePrint
+---
+
 - hosts: all
   gather_facts: false
   remote_user: root
@@ -155,14 +158,5 @@
   #     state: file
   # - name: Installing Drush
   #   shell: composer global require drush/drush:dev-master
-
-
-
-
-
-
-
-
-
 
 
