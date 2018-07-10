@@ -1,0 +1,105 @@
+---
+
+- hosts: ghost
+  remote_user: root
+  tasks:
+  - name: Upgrading apt
+    apt:
+      update_cache: true
+      allow_unauthenticated: true
+      upgrade: true
+  - name: Installing curl
+    apt:
+      name: curl
+      allow_unauthenticated: true
+      update_cache: false
+  - name: Downloading ghost zip file
+      get_url:
+        url: https://ghost.org/zip/ghost-latest.zip 
+        dest: /tmp/ghost-latest.zip
+        validate_certs: false
+  - name: installing unzip
+    apt:
+      name: unzip
+      allow_unauthenticated: true
+      update_cache: false
+  - name: Unzipping ghost zip file
+    shell: unzip /tmp/ghost-latest.zip
+
+  -name: Directory creation
+       
+  -name: Moving file
+  -name: Installing npm
+  -name: NodeJs Download
+    shell:
+  -name: NodeJs Installation
+  -name: npm Installation
+  -name: Screen nginx Installation
+  -name: File editing (nano)
+  -name: 
+
+
+  - name: Installing nginx
+    apt:
+      name: nginx
+      allow_unauthenticated: true
+      update_cache: false
+  - name: Installing PHP
+    apt:
+      name: php7.0
+      allow_unauthenticated: true
+      update_cache: false
+  - name: Installing PHP CGI
+    apt:
+      name: php7.0-cgi
+      allow_unauthenticated: true
+      update_cache: false
+  - name: Installing MySQL PHP Module
+    apt:
+      name: php7.0-mysql
+      allow_unauthenticated: true
+      update_cache: false
+  - name: Installing MariaDB
+    apt:
+      name: mariadb-server
+      allow_unauthenticated: true
+      update_cache: false
+  - name: Installing python-mysqldb
+    apt:
+      name: python-mysqldb
+      allow_unauthenticated: true
+      update_cache: false
+  - name: Creating database
+    mysql_db:
+      name: drupal
+      state: present
+      encoding: utf8
+  - name: Creating database user
+    mysql_user:
+      name: drupal
+      password: drupal
+      priv: drupal.*:ALL 
+  - name: Restarting nginx
+    service:
+      name: nginx
+      state: restarted
+  - name: Downloading Composer
+    get_url:
+      url: https://getcomposer.org/installer
+      dest: /tmp/installer
+      validate_certs: false
+  - name: Installing Composer
+    shell: cat /tmp/installer | php -- --install-dir=/usr/local/bin --disable-tls
+    args:
+      creates: /usr/local/bin/composer
+  - name: Rename composer.phar to composer
+    shell: mv /usr/local/bin/composer.phar /usr/local/bin/composer
+    args:
+      creates: /usr/local/bin/composer
+  - name: Making composer executable
+    file: 
+      path: /usr/local/bin/composer
+      mode: a+x
+      state: file
+  - name: Installing Drush
+    shell: composer global require drush/drush:dev-master

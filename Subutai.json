@@ -27,7 +27,7 @@
     ],
     "ansible-configuration": {
         "source-url": "https://github.com/Almansherov/Ghost-BluePrint/archive/master.zip",
-        "ansible-playbook": "Ghost.json",
+        "ansible-playbook": "Ghost.yml",
         "extra-vars": [
             {
                 "key": "site_title",
