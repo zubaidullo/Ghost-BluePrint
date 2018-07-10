@@ -28,22 +28,22 @@
         state: present
         allow_unauthenticated: yes
         with_items: 
-          - php7.0
-          - php7.0-cgi
-          - php7.0-mysql
-          - php7.0-zip
-          - php7.0-dom
-          - php7.0-xmlwriter
-          - php7.0-xmlreader
-          - php7.0-xml
-          - php7.0-mbstring
-          - php7.0-gd
-          - php7.0-curl
-          - apache2
-          - libapache2-mod-php7.0
-          - unzip 
-          - mariadb-server
-          - python-mysqldb
+        - php7.0
+        - php7.0-cgi
+        - php7.0-mysql
+        - php7.0-zip
+        - php7.0-dom
+        - php7.0-xmlwriter
+        - php7.0-xmlreader
+        - php7.0-xml
+        - php7.0-mbstring
+        - php7.0-gd
+        - php7.0-curl
+        - apache2
+        - libapache2-mod-php7.0
+        - unzip 
+        - mariadb-server
+        - python-mysqldb
 
     # - name: Downloading ghost zip file
     #  get_url:
