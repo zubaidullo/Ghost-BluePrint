@@ -44,12 +44,7 @@
         - unzip 
         - mariadb-server
         - python-mysqldb
-
-    - name: Installing nginx
-     apt:
-      name: nginx
-      allow_unauthenticated: true
-      update_cache: false
+        - nginx
 
     # - name: Downloading ghost zip file
     #  get_url:
