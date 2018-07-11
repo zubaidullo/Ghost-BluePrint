@@ -72,7 +72,7 @@
 
 
     - name: Move files
-      command: bash -c "mv /tmp/ghost/* /var/www/html/"
+      command: bash -c "mv /tmp/Ghost-1.24.8.zip/* /var/www/html/"
 
     - name: Change file ownership
       file: 
