@@ -50,17 +50,17 @@
     #     url: https://ghost.org/zip/ghost-latest.zip 
     #     dest: /tmp/ghost-latest.zip
     #     validate_certs: false
-    - name: Creating new folder
-      file: 
-        path: /tmp/ghost
-        state: directory
-        mode: 0755
+    # - name: Creating new folder
+    #   file: 
+    #     path: /tmp/ghost
+    #     state: directory
+    #     mode: 0755
 
-    - name: Download
-      get_url:
-        url: https://ghost.org/zip/ghost-latest.zip
-        dest: /tmp/ghost.zip
-        validate_certs: no
+    # - name: Download
+    #   get_url:
+    #     url: https://ghost.org/zip/ghost-latest.zip
+    #     dest: /tmp/ghost.zip
+    #     validate_certs: no
 
     - name: Create database
       mysql_db: 
@@ -74,13 +74,12 @@
         password: ghost
         priv: ghost.*:ALL
 
-    - name: Download and unzip Ghost
+    - name: Download and unzip
       unarchive: 
-        src: /tmp/ghost.zip
-        dest: /tmp/ghost
+        src: "https://ghost.org/zip/ghost-latest.zip"
+        dest: "/tmp"
         remote_src: yes
         validate_certs: no
-        # extra_opts: [--strip-components=1]
 
 
     - name: Move files
@@ -116,14 +115,14 @@
   
   # - name: Creating database
   #   mysql_db:
-  #     name: drupal
+  #     name:
   #     state: present
   #     encoding: utf8
   # - name: Creating database user
   #   mysql_user:
-  #     name: drupal
-  #     password: drupal
-  #     priv: drupal.*:ALL 
+  #     name: 
+  #     password: 
+  #     priv:  
   # - name: Restarting nginx
   #   service:
   #     name: nginx
@@ -141,12 +140,4 @@
   #   shell: mv /usr/local/bin/composer.phar /usr/local/bin/composer
   #   args:
   #     creates: /usr/local/bin/composer
-  # - name: Making composer executable
-  #   file: 
-  #     path: /usr/local/bin/composer
-  #     mode: a+x
-  #     state: file
-  # - name: Installing Drush
-  #   shell: composer global require drush/drush:dev-master
-
-
+  # 
