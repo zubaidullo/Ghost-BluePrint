@@ -50,17 +50,17 @@
     #     url: https://ghost.org/zip/ghost-latest.zip 
     #     dest: /tmp/ghost-latest.zip
     #     validate_certs: false
-    # - name: Creating new folder
-    #   file: 
-    #     path: /tmp/ghost
-    #     state: directory
-    #     mode: 0755
+    - name: Creating new folder
+      file: 
+        path: /tmp/ghost
+        state: directory
+        mode: 0755
 
-    # - name: Download
-    #   get_url:
-    #     url: https://ghost.org/zip/ghost-latest.zip
-    #     dest: /tmp/ghost.zip
-    #     validate_certs: no
+    - name: Download
+      get_url:
+        url: https://ghost.org/zip/ghost-latest.zip
+        dest: /tmp/ghost.zip
+        validate_certs: no
 
     - name: Create database
       mysql_db: 
@@ -74,16 +74,24 @@
         password: ghost
         priv: ghost.*:ALL
 
-    - name: Download and unzip
+    - name: Download and unzip Ghost
       unarchive: 
-        src: "https://ghost.org/zip/ghost-latest.zip"
-        dest: "/tmp"
+        src: /tmp/ghost.zip
+        dest: /tmp/ghost
         remote_src: yes
         validate_certs: no
+        # extra_opts: [--strip-components=1]
 
+    - name: stat ghost
+      stat: path=/tmp/ghost/ghost.zip
+      register: ghost_stat
 
-    - name: Move files
-      command: mv /tmp/ghost/* /var/www/html/
+    - name: Move ghost.zip to ghost
+      command: mv /tmp/ghost /var/www/html
+      when: foo_stat.stat.exists
+
+    # - name: Move files
+    #   command: mv /tmp/ghost/* /var/www/html/
 
     - name: Change file ownership
       file: 
