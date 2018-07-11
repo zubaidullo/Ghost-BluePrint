@@ -51,6 +51,12 @@
     #     dest: /tmp/ghost-latest.zip
     #     validate_certs: false
 
+    - name: Download
+      get_url:
+        url: https://ghost.org/zip/ghost-latest.zip
+        dest: /tmp/ghost.zip
+        validate_certs: no
+
     - name: Create database
       mysql_db: 
         name: ghost
