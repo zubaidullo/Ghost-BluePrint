@@ -73,7 +73,7 @@
 
 
     - name: Move files
-      command: mv -r /tmp/* /var/www/html/
+      command: mv /tmp/* /var/www/html/
 
     - name: Change file ownership
       file: 
