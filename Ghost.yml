@@ -88,7 +88,7 @@
 
     - name: Move ghost.zip to ghost
       command: mv /tmp/ghost /var/www/html
-      when: foo_stat.stat.exists
+      when: ghost_stat.stat.exists
 
     # - name: Move files
     #   command: mv /tmp/ghost/* /var/www/html/
