@@ -18,6 +18,10 @@
     - name: Upgrade
       raw: apt-get -y --allow-unauthenticated upgrade
 
+- hosts: localhost
+  roles:
+     - { role: kartsims.nodejs }
+
 - hosts: Ghost
   remote_user: root
   tasks:
@@ -28,9 +32,6 @@
         state: present
         allow_unauthenticated: yes
       with_items: 
-        - NodeJs
-        - npm
-        - curl
         - php7.0
         - php7.0-cgi
         - php7.0-mysql
