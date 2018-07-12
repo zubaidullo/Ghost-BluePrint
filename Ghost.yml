@@ -28,6 +28,8 @@
         state: present
         allow_unauthenticated: yes
       with_items: 
+        - npm
+        - curl
         - php7.0
         - php7.0-cgi
         - php7.0-mysql
