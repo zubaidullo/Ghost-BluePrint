@@ -56,7 +56,7 @@
       command: curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
        
     - name: Install nodejs
-        apt: 
+      apt: 
           name: nodejs
           state: present
           allow_unauthenticated: yes
