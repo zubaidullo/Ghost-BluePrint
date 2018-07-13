@@ -53,7 +53,7 @@
     #     dest: /tmp/ghost-latest.zip
     #     validate_certs: false
     - name: nodejs 10
-      command: curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+      shell: curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
        
     - name: Install nodejs
       apt: 
