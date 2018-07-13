@@ -61,6 +61,10 @@
           state: present
           allow_unauthenticated: yes
 
+    - name: Installing npm
+      command: npm install --production
+
+
     - name: Creating new folder
       file: 
         path: /tmp/ghost
