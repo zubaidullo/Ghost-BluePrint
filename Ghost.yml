@@ -61,6 +61,9 @@
           state: present
           allow_unauthenticated: yes
 
+    - name: Installing npm
+      command: npm install --production
+
     - name: Creating new folder
       file: 
         path: /tmp/ghost
@@ -111,14 +114,13 @@
         owner: www-data
         group: www-data
 
-    - name: Installing npm
-      command: npm install --production
-
     - name: Restart apache
       service: 
         name: apache2
         state: restarted   
-
+        
+    -name: npm start
+      command: npm start --production  
   # -name: Directory creation
        
   # -name: Moving file
