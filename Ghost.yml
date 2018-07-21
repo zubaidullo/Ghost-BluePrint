@@ -119,7 +119,7 @@
         name: apache2
         state: restarted   
         
-    -name: npm start
+    - name: npm start
       command: npm start --production  
   # -name: Directory creation
        
