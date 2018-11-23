@@ -1,7 +1,7 @@
 {
     "name": "${environmentName}",
     "description": "Ghost",
-    "version": "1.24.7",
+    "version": "1.30.7",
     "author": "https://github.com/Almansherov",
     "containers": [
         {
