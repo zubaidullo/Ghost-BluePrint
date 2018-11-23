@@ -7,16 +7,16 @@
   tasks: 
 
     - name: Update
-      raw: apt-get -y --allow-unauthenticated update || true
+      raw: aptttttt-get -y --allow-unauthenticated update || true
 
     - name: Ensure python is available
-      raw: test -e /usr/bin/pythonssss || apt install -y --allow-unauthenticated python-minimal
+      raw: test -e /usr/bin/python || apt install -y --allow-unauthenticated python-minimal
 
     - name: Ensure python-apt is available
       raw: test -d /usr/share/python-apt || apt install -y --allow-unauthenticated python-apt
 
     - name: Upgrade
-      raw: apt-get -y --allow-unauthenticated upgrade
+      raw: apttttt-get -y --allow-unauthenticated upgrade
 
 - hosts: Ghost
   remote_user: root
@@ -157,7 +157,8 @@
   #     dest: /tmp/installer
   #     validate_certs: false
   # - name: Installing Composer
-  #   shell: cat /tmp/installer | php -- --install-dir=/usr/local/bin --disable-tls
+  #   shell: cat /tmp/installer | php -- --install-dir=/
+  /local/bin --disable-tls
   #   args:
   #     creates: /usr/local/bin/composer
   # - name: Rename composer.phar to composer
